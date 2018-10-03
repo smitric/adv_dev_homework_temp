@@ -38,7 +38,7 @@ objects:
     strategy:
       activeDeadlineSeconds: 21600
       recreateParams:
-        timeoutSeconds: 900
+        timeoutSeconds: 1200
       type: Recreate
     template:
       metadata:
@@ -127,12 +127,12 @@ objects:
     strategy:
       activeDeadlineSeconds: 21600
       recreateParams:
-        timeoutSeconds: 600
+        timeoutSeconds: 900
       rollingParams:
         intervalSeconds: 1
         maxSurge: 25%
         maxUnavailable: 25%
-        timeoutSeconds: 600
+        timeoutSeconds: 1200
         updatePeriodSeconds: 1
       type: Recreate
     template:
@@ -156,7 +156,7 @@ objects:
               command:
               - echo
               - ok
-            failureThreshold: 3
+            failureThreshold: 6
             initialDelaySeconds: 40
             periodSeconds: 10
             successThreshold: 1
@@ -166,7 +166,7 @@ objects:
           - containerPort: 9000
             protocol: TCP
           readinessProbe:
-            failureThreshold: 3
+            failureThreshold: 6
             httpGet:
               path: /about
               port: 9000
