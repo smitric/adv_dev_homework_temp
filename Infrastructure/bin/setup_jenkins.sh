@@ -21,7 +21,7 @@ while : ; do
     oc get pod -n ${GUID}-jenkins | grep -v deploy | grep "1/1"
     if [ $? == "1" ] 
       then 
-        sleep 20
+        sleep 30
       else 
         break 
     fi
@@ -37,7 +37,7 @@ while : ; do
         break
       else
         echo 'jenkins-slave-appdev building sleep 20'
-        sleep 20
+        sleep 30
     fi
 done
 
