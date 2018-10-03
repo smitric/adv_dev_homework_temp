@@ -48,7 +48,7 @@ spec:
   selector:
     name: "mongodb"' | oc create -n ${GUID}-parks-prod -f -
 
-oc create -f ./Infrastructure/templates/mogodb-prod.yaml -n ${GUID}-parks-prod
+oc create -f ../Infrastructure/templates/mogodb-prod.yaml -n ${GUID}-parks-prod
 
 oc create configmap mlbparks-blue-config --from-env-file=./Infrastructure/templates/MLBParks-blue.env -n ${GUID}-parks-prod
 
